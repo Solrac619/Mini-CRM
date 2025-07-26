@@ -2,9 +2,9 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3001/api', // cámbialo al final
+  baseURL: import.meta.env.VITE_API_BASE_URL,
 });
-        // lint-disable-next-line 
+
 instance.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
