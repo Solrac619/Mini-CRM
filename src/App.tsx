@@ -6,7 +6,7 @@ import LandingPage from './pages/LandignPage';
 import { AuthProvider } from './provider/AuthProvider';
 import { useAuth } from './context/useAuth';
 import type { JSX } from 'react';
-
+import AvisoPrivacidad from './pages/AvisoSeguridad';
 function ProtectedRoute({ children }: { children: JSX.Element }) {
   const { isAuthenticated } = useAuth();
   return isAuthenticated ? children : <Navigate to="/login" />;
@@ -19,6 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/aviso-privacidad" element={<AvisoPrivacidad />} />
           <Route path="/dashboard" element={
             <ProtectedRoute>
               <Dashboard />
